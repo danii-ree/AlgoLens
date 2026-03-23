@@ -79,10 +79,6 @@ The application targets the standard curriculum of a first-year university Compu
 | Binary Search Tree | Insert, delete, search |
 | AVL Tree | LL, RR, LR, RL rotations with labeled before/after states |
 | Min-Heap and Max-Heap | Heapify animation |
-| In-order Traversal | |
-| Pre-order Traversal | |
-| Post-order Traversal | |
-| Level-order Traversal (BFS) | |
 
 ### Graphs
 
