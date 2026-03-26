@@ -144,10 +144,10 @@ export default function Home() {
         {/* Logo */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
           <div style={{ width: 38, height: 38, borderRadius: 12, background: 'linear-gradient(135deg, var(--accent-primary), var(--accent-alt))', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', boxShadow: '0 0 15px var(--accent-primary-border)' }}>
-            <Microscope size={22} />
+            <a href='/' style={{ textDecoration: 'none', color: 'inherit' }}><Microscope size={22} /></a>
           </div>
           <div className="hide-mobile" style={{ fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 22, fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '-0.5px' }}>
-            HackDSA
+            <a href='/' style={{ textDecoration: 'none', color: 'inherit' }}>HackDSA</a>
           </div>
         </div>
 
@@ -181,7 +181,7 @@ export default function Home() {
               </button>
             );
           })}
-          
+
           {/* Theme Toggler */}
           <button onClick={toggleTheme} title="Toggle Theme" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 36, height: 36, borderRadius: 10, background: 'transparent', border: '1px solid var(--border-glass)', color: 'var(--text-secondary)', cursor: 'pointer', transition: 'all 0.2s', marginLeft: 8 }}>
             {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
