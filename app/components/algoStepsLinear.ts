@@ -13,11 +13,11 @@ export function stackSteps(values: number[]): AlgoStep[] {
     for (const v of values) {
         stack.push({ value: v, state: 'visiting' });
         steps.push({ stackItems: [...stack], description: `Push ${v} — placed on top of stack.`, highlightLines: [3] });
-        stack[stack.length - 1].state = 'default';
+        stack.at(-1)!.state = 'default';
     }
 
     for (let i = 0; i < Math.min(3, values.length); i++) {
-        const top = stack[stack.length - 1];
+        const top = stack.at(-1)!;
         top.state = 'visiting';
         steps.push({ stackItems: [...stack], description: `Pop — removing ${top.value} from top.`, highlightLines: [7] });
         stack.pop();
@@ -38,7 +38,7 @@ export function queueSteps(values: number[]): AlgoStep[] {
     for (const v of values) {
         queue.push({ value: v, state: 'visiting' });
         steps.push({ queueItems: [...queue], description: `Enqueue ${v} — added to rear of queue.`, highlightLines: [3] });
-        queue[queue.length - 1].state = 'default';
+        queue.at(-1)!.state = 'default';
     }
 
     for (let i = 0; i < Math.min(3, values.length); i++) {
@@ -66,7 +66,7 @@ export function linkedListSteps(type: 'singly' | 'doubly' | 'circular', values: 
         const newNode: LLItem = { value: v, state: 'visiting', next: true, prev: type === 'doubly' };
         list.push(newNode);
         steps.push({ listItems: list.map((n) => ({ ...n })), description: `Inserted ${v} at tail. List length: ${list.length}.` });
-        list[list.length - 1].state = 'default';
+        list.at(-1)!.state = 'default';
     }
 
     // Traverse
@@ -163,7 +163,7 @@ export function hashTableSteps(mode: 'chaining' | 'linear'): AlgoStep[] {
                 description: `"${key}" stored in bucket ${idx}${collision ? ' (chained)' : ''}.`,
                 hashFormula: `h("${key}") = ${idx}`,
             });
-            buckets[idx].entries[buckets[idx].entries.length - 1].state = 'default';
+            buckets[idx].entries.at(-1)!.state = 'default';
             buckets[idx].state = 'default';
         } else {
             // Linear probing
@@ -187,7 +187,7 @@ export function hashTableSteps(mode: 'chaining' | 'linear'): AlgoStep[] {
                 description: `"${key}" placed at bucket ${probe} after ${collisionCount} probes.`,
                 hashFormula: `final slot = ${probe}`,
             });
-            buckets[probe].entries[buckets[probe].entries.length - 1].state = 'default';
+            buckets[probe].entries.at(-1)!.state = 'default';
             buckets[probe].state = 'default';
         }
     }

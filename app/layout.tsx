@@ -18,9 +18,9 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet" />
         <script dangerouslySetInnerHTML={{ __html: `
-          (function() {
+          (() => {
             try {
-              var theme = localStorage.getItem('theme');
+              const theme = localStorage.getItem('theme');
               if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.classList.add('dark');
               } else if (theme === 'light') {
@@ -28,7 +28,7 @@ export default function RootLayout({
               } else {
                 document.documentElement.classList.add('dark');
               }
-            } catch (e) {}
+            } catch {}
           })();
         `}} />
       </head>

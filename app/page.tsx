@@ -203,6 +203,25 @@ export default function Home() {
           )}
         </div>
       </main>
+
+      {/* Footer Masthead */}
+      <footer style={{
+        height: 40,
+        flexShrink: 0,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'var(--bg-glass)',
+        borderTop: '1px solid var(--border-glass)',
+        backdropFilter: 'blur(16px)',
+        zIndex: 50,
+        fontFamily: 'system-ui, -apple-system, sans-serif',
+        fontSize: 11,
+        color: 'var(--text-secondary)',
+        letterSpacing: '0.5px'
+      }}>
+        Made by <a href="https://github.com/danii-ree" target="_blank" rel="noopener noreferrer" style={{ fontWeight: 700, color: 'var(--accent-primary)', marginLeft: 4, textDecoration: 'none' }}>danii-ree</a>
+      </footer>
     </div>
   );
 }

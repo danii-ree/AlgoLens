@@ -152,7 +152,7 @@ export default function Visualizer({ onAlgoChange }: Props) {
         <div style={{ display: 'flex', flexDirection: 'column', height: '100%', gap: 0 }}>
             {/* Top bar */}
             <div style={{ ...glass, margin: '12px 12px 0', padding: '12px 16px', display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
-                <select value={category} onChange={(e) => { setCategory(e.target.value); const first = getAlgorithmsByCategory(e.target.value)[0]; if (first) setAlgoId(first.id); }}
+            <select value={category} onChange={(e) => { setCategory(e.target.value); const first = getAlgorithmsByCategory(e.target.value).at(0); if (first) setAlgoId(first.id); }}
                     style={{ padding: '8px 12px', background: 'var(--bg-panel)', border: '1px solid var(--border-main)', borderRadius: 8, color: 'var(--text-primary)', fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 14, cursor: 'pointer' }}>
                     {CATEGORIES.map((c) => <option key={c} value={c}>{CATEGORY_LABELS[c]}</option>)}
                 </select>

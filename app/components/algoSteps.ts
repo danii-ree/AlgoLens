@@ -290,7 +290,8 @@ export function countingSortSteps(input: number[]): AlgoStep[] {
         while (count[i]-- > 0) {
             result.push(i);
             const b = makeBars(result.concat(arr.slice(result.length)));
-            b[result.length - 1].state = 'sorted';
+            b[result.length - 1].state = 'sorted'; // Keep this one as it indexes into middle of 'b' if result is part of it. No, wait, b is result.concat(...) so b[result.length -1] IS result.at(-1). Let's use it.
+            b.at(result.length - 1)!.state = 'sorted';
             steps.push(snap(b, `Placing ${i} at output position ${result.length - 1}.`, { highlightLines: [7] }));
             idx++;
         }
