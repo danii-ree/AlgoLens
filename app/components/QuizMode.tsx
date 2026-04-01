@@ -10,14 +10,8 @@ const TOPICS = [
     { id: 'all', label: 'All Topics' },
     ...dynamicTopics.map(t => ({
         id: t,
-        label: t.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+        label: t.split('-').map(w => w === 'and' ? 'and' : w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
     }))
-];
-
-const DIFFICULTIES = [
-    { id: 'easy' as const, label: 'Easy', icon: <Circle size={12} fill="var(--color-success)" />, color: 'var(--color-success)' },
-    { id: 'medium' as const, label: 'Medium', icon: <Circle size={12} fill="var(--color-warning)" />, color: 'var(--color-warning)' },
-    { id: 'hard' as const, label: 'Hard', icon: <Circle size={12} fill="var(--color-danger)" />, color: 'var(--color-danger)' },
 ];
 
 interface QuizState {
@@ -39,15 +33,13 @@ const glass: React.CSSProperties = {
 };
 
 export default function QuizMode() {
-    const [mode, setMode] = useState<'concept' | 'trace'>('concept');
     const [topic, setTopic] = useState('all');
-    const [difficulty, setDifficulty] = useState<'easy' | 'medium' | 'hard'>('easy');
     const [quiz, setQuiz] = useState<QuizState | null>(null);
     const [shake, setShake] = useState(false);
     const [wrongIndex, setWrongIndex] = useState<number | null>(null);
 
     function startQuiz() {
-        const qs = getQuestionsForTopic(topic, difficulty);
+        const qs = getQuestionsForTopic(topic);
         if (!qs.length) return;
         setQuiz({ questions: qs, currentIndex: 0, selected: qs[0]?.isMultipleSelect ? [] : null, showResult: false, score: 0, startTime: Date.now(), finished: false });
         setShake(false); setWrongIndex(null);
@@ -111,7 +103,7 @@ export default function QuizMode() {
                         Quiz Complete!
                     </div>
                     <div style={{ fontFamily: 'system-ui, -apple-system, sans-serif', color: 'var(--text-secondary)', marginBottom: 24 }}>
-                        {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)} — {topic === 'all' ? 'All Topics' : topic}
+                        {topic === 'all' ? 'All Topics' : topic}
                     </div>
                     <div style={{ fontSize: 48, fontFamily: 'system-ui, -apple-system, sans-serif', fontWeight: 800, color: pct >= 80 ? 'var(--color-success)' : pct >= 50 ? 'var(--color-warning)' : 'var(--color-danger)', margin: '8px 0' }}>
                         {quiz.score}/{quiz.questions.length}
@@ -219,40 +211,7 @@ export default function QuizMode() {
         <div style={{ padding: 32, display: 'flex', flexDirection: 'column', gap: 24, maxWidth: 800, margin: '0 auto' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 22, fontWeight: 800, color: 'var(--text-primary)' }}><Puzzle size={24} /> Quiz Mode</div>
 
-            {/* Mode tabs */}
-            <div style={{ display: 'flex', gap: 8 }}>
-                {(['concept', 'trace'] as const).map((m) => (
-                    <button key={m} onClick={() => setMode(m)} style={{
-                        padding: '8px 20px', borderRadius: 8, border: 'none', cursor: 'pointer',
-                        background: mode === m ? 'linear-gradient(135deg, var(--accent-primary)22, var(--accent-primary)11)' : 'transparent',
-                        color: mode === m ? 'var(--accent-primary)' : 'var(--text-secondary)',
-                        fontFamily: 'system-ui, -apple-system, sans-serif', fontWeight: 700, fontSize: 14,
-                        boxShadow: mode === m ? '0 0 0 1px var(--accent-primary)55' : '0 0 0 1px var(--border-main)',
-                    }}>
-                        {m === 'concept' ? '[A] Concept Quiz' : '[B] Trace Quiz'}
-                    </button>
-                ))}
-            </div>
-
             <div style={{ ...glass, padding: 28, display: 'flex', flexDirection: 'column', gap: 20 }}>
-                {/* Difficulty */}
-                <div>
-                    <div style={{ fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 12, color: 'var(--text-secondary)', marginBottom: 10, letterSpacing: 1 }}>DIFFICULTY</div>
-                    <div style={{ display: 'flex', gap: 8 }}>
-                        {DIFFICULTIES.map((d) => (
-                            <button key={d.id} onClick={() => setDifficulty(d.id)} style={{
-                                display: 'flex', alignItems: 'center', gap: 6,
-                                padding: '8px 16px', borderRadius: 8, border: `2px solid ${difficulty === d.id ? d.color : 'var(--border-main)'}`,
-                                background: difficulty === d.id ? `${d.color}22` : 'transparent', color: difficulty === d.id ? d.color : 'var(--text-secondary)',
-                                fontFamily: 'system-ui, -apple-system, sans-serif', fontWeight: 600, fontSize: 13, cursor: 'pointer',
-                                boxShadow: difficulty === d.id ? `0 0 10px ${d.color}44` : 'none', transition: 'all 0.2s',
-                            }}>
-                                {d.icon} {d.label}
-                            </button>
-                        ))}
-                    </div>
-                </div>
-
                 {/* Topic */}
                 <div>
                     <div style={{ fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 12, color: 'var(--text-secondary)', marginBottom: 10, letterSpacing: 1 }}>TOPIC</div>
@@ -269,27 +228,18 @@ export default function QuizMode() {
                     </div>
                 </div>
 
-                {mode === 'concept' ? (
-                    <>
-                        <div style={{ fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 14, color: 'var(--text-secondary)' }}>
-                            {getQuestionsForTopic(topic, difficulty).length} questions available · Multiple choice · Instant feedback
-                        </div>
-                        <button onClick={startQuiz} disabled={!getQuestionsForTopic(topic, difficulty).length}
-                            style={{
-                                padding: '14px 32px', background: 'linear-gradient(135deg, var(--accent-primary), var(--accent-alt))',
-                                border: 'none', borderRadius: 10, color: 'var(--bg-main)', fontFamily: 'system-ui, -apple-system, sans-serif',
-                                fontWeight: 800, fontSize: 16, cursor: 'pointer', alignSelf: 'flex-start',
-                                boxShadow: '0 0 20px var(--accent-primary)44',
-                            }}>
-                            Start Quiz →
-                        </button>
-                    </>
-                ) : (
-                    <div style={{ fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 14, color: 'var(--text-secondary)' }}>
-                        <strong style={{ color: 'var(--color-warning)' }}>Trace Quiz</strong>: Given a partially-completed visualization snapshot, answer questions about the next step, final value, or algorithm behavior. Select a topic and difficulty above, then start!<br /><br />
-                        <em>Tip: Use the Visualizer section to practice tracing algorithms step by step before taking the Trace Quiz.</em>
-                    </div>
-                )}
+                <div style={{ fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 14, color: 'var(--text-secondary)' }}>
+                    {getQuestionsForTopic(topic).length} questions available · Multiple choice · Instant feedback
+                </div>
+                <button onClick={startQuiz} disabled={!getQuestionsForTopic(topic).length}
+                    style={{
+                        padding: '14px 32px', background: 'linear-gradient(135deg, var(--accent-primary), var(--accent-alt))',
+                        border: 'none', borderRadius: 10, color: 'var(--bg-main)', fontFamily: 'system-ui, -apple-system, sans-serif',
+                        fontWeight: 800, fontSize: 16, cursor: 'pointer', alignSelf: 'flex-start',
+                        boxShadow: '0 0 20px var(--accent-primary)44',
+                    }}>
+                    Start Quiz →
+                </button>
             </div>
 
             {/* Quick stats */}
@@ -301,10 +251,6 @@ export default function QuizMode() {
                 <div>
                     <div style={{ fontFamily: 'JetBrains Mono', fontSize: 28, fontWeight: 700, color: 'var(--color-success)' }}>{TOPICS.length - 1}</div>
                     <div style={{ fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 13, color: 'var(--text-secondary)' }}>Topics Covered</div>
-                </div>
-                <div>
-                    <div style={{ fontFamily: 'JetBrains Mono', fontSize: 28, fontWeight: 700, color: 'var(--color-warning)' }}>3</div>
-                    <div style={{ fontFamily: 'system-ui, -apple-system, sans-serif', fontSize: 13, color: 'var(--text-secondary)' }}>Difficulty Levels</div>
                 </div>
             </div>
         </div>

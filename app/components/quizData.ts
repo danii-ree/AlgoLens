@@ -5,7 +5,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
   
   {
     id: 'a1_2023',
-    topic: 'bitwise-operations',
+    topic: 'basics-and-memory',
     difficulty: 'medium',
     question: 'Which of the following functions return TRUE given #define TRUE 1 and #define FALSE 0?',
     options: [
@@ -22,7 +22,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a2_2023',
-    topic: 'time-complexity',
+    topic: 'algorithm-analysis',
     difficulty: 'easy',
     question: 'What does O(n²) for a function mean?',
     options: [
@@ -56,7 +56,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a4_2023',
-    topic: 'hash-functions',
+    topic: 'hash-tables-and-heaps',
     difficulty: 'easy',
     question: 'What are the characteristics of a good hash function?',
     options: [
@@ -73,7 +73,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a5_2023',
-    topic: 'tree-traversal',
+    topic: 'trees-and-search-trees',
     difficulty: 'medium',
     question: 'Which of the following are valid depth-first traversals for the tree: 23(parent) with left child 18, 18 has children 12,44; 12 has child 10; right subtree: 35 with children 10,52?',
     options: [
@@ -90,7 +90,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a6_2023',
-    topic: 'data-structures',
+    topic: 'stacks-and-queues',
     difficulty: 'easy',
     question: 'Which of the following is a First-In-First-Out (FIFO) data structure?',
     options: [
@@ -107,7 +107,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a7_2023',
-    topic: 'graph-representation',
+    topic: 'graphs',
     difficulty: 'medium',
     question: 'When would you represent graphs using an adjacency matrix over an adjacency list?',
     options: [
@@ -124,7 +124,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a8_2023',
-    topic: 'quicksort',
+    topic: 'sorting',
     difficulty: 'medium',
     question: 'The worst case scenario in a quicksort:',
     options: [
@@ -141,7 +141,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a9_2023',
-    topic: 'memory-allocation',
+    topic: 'basics-and-memory',
     difficulty: 'easy',
     question: 'Malloc operations:',
     options: [
@@ -158,7 +158,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a10_2023',
-    topic: 'avl-tree',
+    topic: 'avl-trees',
     difficulty: 'medium',
     question: 'Which of the following operations for an AVL search tree is not O(log n)?',
     options: [
@@ -177,7 +177,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a1_2025',
-    topic: 'binary-search-tree',
+    topic: 'trees-and-search-trees',
     difficulty: 'medium',
     question: 'A binary search tree is constructed by inserting: 10, 4, 18, 2, 5, 12, 11. What is the correct in-order traversal?',
     options: [
@@ -194,7 +194,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a2_2025',
-    topic: 'linked-list-merge',
+    topic: 'lists-and-arrays',
     difficulty: 'easy',
     question: 'What is the best upper bound for time complexity of merging two sorted linked lists of sizes m and n?',
     options: [
@@ -211,7 +211,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a3_2025',
-    topic: 'queue-with-stacks',
+    topic: 'stacks-and-queues',
     difficulty: 'medium',
     question: 'A queue implemented using two stacks (in and out): enqueue by pushing to in, dequeue by popping from out. When out is empty, all items from in are transferred to out. Which operation has greatest worst-case time complexity?',
     options: [
@@ -228,7 +228,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a4_2025',
-    topic: 'recursion-complexity',
+    topic: 'algorithm-analysis',
     difficulty: 'hard',
     question: 'What is the time complexity of a recursive permutation function that generates all n! permutations?',
     options: [
@@ -245,7 +245,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a5_2025',
-    topic: 'compilation',
+    topic: 'basics-and-memory',
     difficulty: 'easy',
     question: 'What is the correct order of steps in C compilation from source code to executable?',
     options: [
@@ -262,7 +262,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a6_2025',
-    topic: 'postfix-notation',
+    topic: 'stacks-and-queues',
     difficulty: 'hard',
     question: 'Which postfix/RPN expression is mathematically equivalent to A*B+(C/(D+E))+F?',
     options: [
@@ -279,7 +279,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a7_2025',
-    topic: 'pointers',
+    topic: 'basics-and-memory',
     difficulty: 'medium',
     question: 'What is printed by: int x = 5, y = 10; int *p = &x, *q = &y; *p = *q; *q = *p + 1; printf("%d %d", x, y);',
     options: [
@@ -296,7 +296,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a8_2025',
-    topic: 'memory-regions',
+    topic: 'basics-and-memory',
     difficulty: 'medium',
     question: 'Which variable declarations correctly match their memory regions? int x = 10; int *p = malloc(sizeof(int)); static int y = 5;',
     options: [
@@ -313,7 +313,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a9_2025',
-    topic: 'linked-list',
+    topic: 'lists-and-arrays',
     difficulty: 'medium',
     question: 'In a doubly-linked list with nodes N1→N2→N3, which pointer expression does NOT point to N2?',
     options: [
@@ -330,7 +330,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a10_2025',
-    topic: 'bfs-traversal',
+    topic: 'trees-and-search-trees',
     difficulty: 'medium',
     question: 'In breadth-first traversal of a tree with root 10, left subtree (5 with children 2,7), right subtree (15 with child 20), which array represents an intermediate queue state?',
     options: [
@@ -347,7 +347,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a11_2025',
-    topic: 'avl-tree-balance',
+    topic: 'avl-trees',
     difficulty: 'hard',
     question: 'Values inserted into AVL tree in order: 53, 17, 5, 43, 37, 41, 29, 47. What is the balance factor of node 17?',
     options: [
@@ -364,7 +364,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a12_2025',
-    topic: 'avl-rotations',
+    topic: 'avl-trees',
     difficulty: 'hard',
     question: 'In AVL tree insertion sequence 53, 17, 5, 43, 37, 41, 29, 47, what rotation is triggered by inserting 41?',
     options: [
@@ -381,7 +381,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a13_2025',
-    topic: 'avl-rotations',
+    topic: 'avl-trees',
     difficulty: 'hard',
     question: 'In the same AVL tree sequence, what rotation is triggered by inserting 47?',
     options: [
@@ -398,7 +398,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a14_2025',
-    topic: 'avl-inorder-traversal',
+    topic: 'avl-trees',
     difficulty: 'medium',
     question: 'After all insertions in the AVL tree (53, 17, 5, 43, 37, 41, 29, 47), what is the in-order traversal?',
     options: [
@@ -415,7 +415,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a15_2025',
-    topic: 'heap-height',
+    topic: 'hash-tables-and-heaps',
     difficulty: 'medium',
     question: 'What is the height of a binary heap with 1000 elements?',
     options: [
@@ -432,7 +432,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a16_2025',
-    topic: 'priority-queue',
+    topic: 'hash-tables-and-heaps',
     difficulty: 'easy',
     question: 'Which problem is most efficiently solved using a priority queue via a heap?',
     options: [
@@ -449,7 +449,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a17_2025',
-    topic: 'min-heap',
+    topic: 'hash-tables-and-heaps',
     difficulty: 'medium',
     question: 'Which array represents a valid min-heap?',
     options: [
@@ -466,7 +466,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a18_2025',
-    topic: 'double-hashing',
+    topic: 'hash-tables-and-heaps',
     difficulty: 'hard',
     question: 'Hash table m=11, h1(k)=k mod 11, h2(k)=1+(k mod 9). Insert 10, 21, 32, 43 in order. Where does 43 go?',
     options: [
@@ -483,7 +483,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a19_2025',
-    topic: 'collision-resolution',
+    topic: 'hash-tables-and-heaps',
     difficulty: 'medium',
     question: 'Which collision resolution strategy is least likely to suffer from clustering effects?',
     options: [
@@ -517,7 +517,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a21_2025',
-    topic: 'branch-and-bound-frontier',
+    topic: 'branch-and-bound',
     difficulty: 'medium',
     question: 'Which statement about the frontier in branch-and-bound is FALSE?',
     options: [
@@ -534,7 +534,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a22_2025',
-    topic: 'graph-representation',
+    topic: 'graphs',
     difficulty: 'medium',
     question: 'For a sparse graph with 100,000 vertices and 120,000 edges, which representation best balances space and BFS traversal time?',
     options: [
@@ -551,7 +551,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a23_2025',
-    topic: 'dijkstra',
+    topic: 'graphs',
     difficulty: 'medium',
     question: 'Using Dijkstra from A with edges: A→B(2), A→D(1), B→C(3), D→C(2), D→E(4), C→E(1). Shortest path cost A to E?',
     options: [
@@ -568,7 +568,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a24_2025',
-    topic: 'dijkstra-properties',
+    topic: 'graphs',
     difficulty: 'medium',
     question: 'Which statement about Dijkstra\'s algorithm is FALSE?',
     options: [
@@ -585,7 +585,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a25_2025',
-    topic: 'sorting-complexity',
+    topic: 'sorting',
     difficulty: 'easy',
     question: 'Which sorting algorithms have average case O(n log n)?',
     options: [
@@ -602,7 +602,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a26_2025',
-    topic: 'inplace-sorting',
+    topic: 'sorting',
     difficulty: 'easy',
     question: 'Which sorting algorithm is NOT in-place?',
     options: [
@@ -619,7 +619,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a27_2025',
-    topic: 'radix-sort',
+    topic: 'sorting',
     difficulty: 'medium',
     question: 'Radix sort is O(nk) but not universally used. Why?',
     options: [
@@ -636,7 +636,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a28_2025',
-    topic: 'data-structure-selection',
+    topic: 'general-concepts',
     difficulty: 'medium',
     question: 'For game session tracking: verify active sessions, add/remove rapidly, 1M sessions, thousands of ops/second. Best choice?',
     options: [
@@ -653,7 +653,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a29_2025',
-    topic: 'data-structure-selection',
+    topic: 'general-concepts',
     difficulty: 'medium',
     question: 'For log file processing: insert real-time, range queries by timestamp, millions of entries. Best choice?',
     options: [
@@ -670,7 +670,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
 
   {
     id: 'a30_2025',
-    topic: 'software-design',
+    topic: 'general-concepts',
     difficulty: 'medium',
     question: 'What general design failure contributed to Therac-25, 737 MAX, and 2003 Blackout?',
     options: [
@@ -686,8 +686,8 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
   }
 ];
 
-export function getQuestionsForTopic(topic: string, difficulty: string): QuizQuestion[] {
-    let qs = QUIZ_QUESTIONS.filter((q) => q.difficulty === difficulty);
+export function getQuestionsForTopic(topic: string): QuizQuestion[] {
+    let qs = [...QUIZ_QUESTIONS];
     if (topic !== 'all') qs = qs.filter((q) => q.topic === topic);
     // Shuffle
     return qs.sort(() => Math.random() - 0.5);
